@@ -1,12 +1,15 @@
+# handle imports
 import matplotlib.pyplot as plt
 from random import randint
 import numpy as np
 
+# initialize global variables
 standard_sum_operations = 0
 standard_product_operations = 0
 karatsuba_sum_operations = 0
 karatsuba_product_operations = 0
 
+# define standard long multiplication algorithm
 def standard(a, b):
     global standard_sum_operations, standard_product_operations
     a_list = [int(x) for x in str(a)]
@@ -30,11 +33,14 @@ def standard(a, b):
     product.reverse()
     return int(sum(d * 10**i for i, d in enumerate(product[::-1])))
 
+# test standard method
+#standard_sum_operations = 0
+#standard_product_operations = 0
 #print(standard(12345678910,10987654321))
 #print(standard_sum_operations)
 #print(standard_product_operations)
 
-
+# define karatsuba multiplcation algorithm
 def karatsuba(a, b):
     global karatsuba_sum_operations, karatsuba_product_operations
     if (a < 10) or (b < 10):
@@ -56,11 +62,14 @@ def karatsuba(a, b):
     karatsuba_sum_operations += 3
     return (z2 * 10**(m2*2)) + ((z1 - z2 - z0) * 10**m2) + z0
 
+# test karatsuba method
+#karatsuba_sum_operations = 0
+#karatsuba_product_operations = 0
 #print(karatsuba(6885,1600))
 #print(karatsuba_sum_operations)
 #print(karatsuba_product_operations)
 
-
+# define simulation
 def simulate():
     global standard_product_operations, karatsuba_product_operations
     upperBound = 15
@@ -103,7 +112,7 @@ def simulate():
     y = x**1.58
     plt.plot(x, y, label="n^1.58")
 
-
+# run simulation & display plot
 simulate()
 plt.legend()
 plt.title("Multiplication Algorithms Comparison")
