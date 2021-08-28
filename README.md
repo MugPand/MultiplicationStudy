@@ -11,4 +11,5 @@ This resulted in the graph shown below that highlights the standard multiplicati
 ![Plot](Images/plot.JPG)
 
 *Note: The n^2 line overlaps the standard algorithm curve.*
+
 *Note: The Karatsuba operation count may not be completely accurate which results in the respective line not following the n^1.58 curve as closely as I had hoped. *
